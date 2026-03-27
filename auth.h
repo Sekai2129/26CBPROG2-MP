@@ -5,13 +5,21 @@
 #include <string.h>
 #include <stdlib.h>
 
-// ─────────────────────────────────────────────
-//  AUTH.H  —  Part 1: Sign Up / Sign In
-//  Original code by partner (Signing_Program.c)
-//  Converted to header file. Struct and logic
-//  preserved exactly — only change is SignIn()
-//  now accepts out_username to pass to dashboard.
-// ─────────────────────────────────────────────
+/*
+    auth.h
+    
+    This file handles user accounts, registration, and login.
+    It includes password encryption and character limit checks.
+    
+    Utilities:
+        encryption / decryption - Uses a XOR key (23) to scramble and
+                                  unscramble passwords in the text file.
+        CreateAccount           - Registers a new user. Checks if the username
+                                  is over 50 chars or if the password is over 99.
+        SignIn                  - Checks the file for matching credentials.
+                                  Saves the username to be used in the dashboard.
+        auth_menu               - The main loop for the login/signup screen.
+*/
 
 #define USER_FILE "Accounts.txt"
 #define KEY 23
